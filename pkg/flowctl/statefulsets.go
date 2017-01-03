@@ -1,5 +1,14 @@
 package flowctl
 
+import (
+	"fmt"
+
+	"github.com/golang/glog"
+	"k8s.io/client-go/pkg/api/unversioned"
+	"k8s.io/client-go/pkg/api/v1"
+	"k8s.io/client-go/pkg/apis/apps/v1beta1"
+)
+
 const dnsTmpl = "{{.ServiceName}}-{{.Number}}.{{.ServiceName}}.{{.Namespace}}.{{.DNSSuffix}}:{{.Port}}"
 
 func createStatefulSet(jobName, image, clusterSpec string, replicas int) error {

@@ -1,5 +1,11 @@
 package flowctl
 
+import (
+	"github.com/golang/glog"
+	"k8s.io/client-go/pkg/api/unversioned"
+	"k8s.io/client-go/pkg/api/v1"
+)
+
 func serviceSpec(jobName string) *v1.Service {
 	return &v1.Service{
 		TypeMeta: unversioned.TypeMeta{

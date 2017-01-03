@@ -1,5 +1,13 @@
 package flowctl
 
+import (
+	"bytes"
+	"fmt"
+	"html/template"
+	"sort"
+	"strings"
+)
+
 func encodeClusterSpec(jobs map[string]int) (string, error) {
 	var buffer bytes.Buffer
 	tmpl := template.Must(template.New("dnsTmpl").Parse(dnsTmpl))
